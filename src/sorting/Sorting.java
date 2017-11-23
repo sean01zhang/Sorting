@@ -18,4 +18,8 @@ public class Sorting {
         // TODO code application logic here
     }
     
+    public int[] Insertion(int[] nums){
+        return;
+    }
+    
 }
