@@ -23,22 +23,23 @@ public class Sorting {
     }
     
     /**
-     * Sorts a comparable array by using a selection sort algorithm. (Sean)
+     * <b><p style="color:purple;"> Sorts a comparable array by using a selection sort algorithm. (Sean)</p></b>
      *
-     * @param index This is the index of where you want to start sorting in the
-     * array
-     * @param item the comparable array of interest to be sorted
-     * @return the array that has been sorted.
+     * @param index This is the index of where you want to start sorting in the array
+     * @param item The comparable array of interest to be sorted
+     * @return The array that has been sorted.
      */
     public static Comparable[] selectionSort(int index, Comparable[] item) 
     {   //check if index searched is at the end of the array
         if (index == item.length - 2) {
+            //if it is, then return the array.
             return item;
         }
 
-        //basic algorithm to find the lowest index and value:
-        //create temporary variables to store the lowest value of the array and
-        //the corresponding index of that value.
+        /*  basic algorithm to find the lowest index and value:
+            create temporary variables to store the lowest value of the array and
+            the corresponding index of that value.
+        */
         Comparable lowest = item[index];
         int indexOfLowest = 0;
 
@@ -52,15 +53,13 @@ public class Sorting {
                 //reassigns the lowest value to the current index of the array.
                 lowest = item[i];
             }
-        }
+        } 
 
         //checks if the lowest index was the smallest element of the array. If so,
         //do nothing and call sort again.
         if (indexOfLowest == 0) 
-        {   return selectionSort(index + 1, item);
-        } 
-        //Otherwise, swap the index in focus with the index of the smallest item in
-        //the array.
+        {   return selectionSort(index + 1, item); } 
+        //Otherwise, swap the index in focus with the index of the smallest item in the array.
         else 
         {   //store value of the element in focus into a temporary variable
             Comparable temp = item[index];
@@ -75,11 +74,11 @@ public class Sorting {
     } //end of selection sort method
 
     /**
-     * Returns a sorted array using merge sort algorithm (Sean) <- This one was for fun.
-     * @param item the array to be sorted
-     * @param low the lower boundary of the area of interest
-     * @param high the higher boundary of the area of interest.
-     * @return the sorted array
+     * <b><p style="color:purple;"> Sorts an integer array by using a merge sort algorithm (Sean) </p></b>
+     * @param item The array to be sorted
+     * @param low The lower boundary of the area of interest
+     * @param high The higher boundary of the area of interest.
+     * @return The sorted array
      */
     public static int[] mergeSort(int[] item, int low, int high) 
     {   /* 
