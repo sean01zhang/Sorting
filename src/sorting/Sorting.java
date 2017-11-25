@@ -30,8 +30,8 @@ public class Sorting {
      * @param item the comparable array of interest to be sorted
      * @return the array that has been sorted.
      */
-    public static Comparable[] selectionSort(int index, Comparable[] item) {
-        //check if index searched is at the end of the array
+    public static Comparable[] selectionSort(int index, Comparable[] item) 
+    {   //check if index searched is at the end of the array
         if (index == item.length - 2) {
             return item;
         }
@@ -43,23 +43,26 @@ public class Sorting {
         int indexOfLowest = 0;
 
         //find index of smallest element of the array starting from the searching index
-        for (int i = index; i < item.length; i++) {   //if the lowest is smaller than the item in the current index when scanning the array,
+        for (int i = index; i < item.length; i++) 
+        {   //if the lowest is smaller than the item in the current index when scanning the array,
             //reassign the lowest value and index of the lowest value to the index that was accessed.
-            if (lowest.compareTo(item[i]) > 0) {   //reassigns the index of the lowest value to the current index of the array
+            if (lowest.compareTo(item[i]) > 0) 
+            {   //reassigns the index of the lowest value to the current index of the array
                 indexOfLowest = i;
-                //
+                //reassigns the lowest value to the current index of the array.
                 lowest = item[i];
             }
         }
 
         //checks if the lowest index was the smallest element of the array. If so,
         //do nothing and call sort again.
-        if (indexOfLowest == 0) {
-            return selectionSort(index + 1, item);
-
-        } //Otherwise, swap the index in focus with the index of the smallest item in
+        if (indexOfLowest == 0) 
+        {   return selectionSort(index + 1, item);
+        } 
+        //Otherwise, swap the index in focus with the index of the smallest item in
         //the array.
-        else {   //store value of the element in focus into a temporary variable
+        else 
+        {   //store value of the element in focus into a temporary variable
             Comparable temp = item[index];
             //assign lowest value of the array to the element in focus.
             item[index] = item[indexOfLowest];
@@ -69,7 +72,7 @@ public class Sorting {
             //call selection sort again
             return selectionSort(index + 1, item);
         }
-    }
+    } //end of selection sort method
 
     /**
      * Returns a sorted array using merge sort algorithm (Sean) <- This one was for fun.
@@ -88,12 +91,13 @@ public class Sorting {
         
         //if low equals to high, only one index of interest exists.
         //This means that the array has been sorted and merged, so return it.
-        if (low == high) {
-            //converts the item
+        if (low == high) 
+        {   //converts the item to an array
             int[] temp = {item[high]};
             return temp;
         //otherwise, perform mergesort algorithm.
-        } else {
+        } else 
+        {
             //find the middle of the given array so that it can be split.
             int mid = (low + high) / 2;
 
@@ -112,14 +116,14 @@ public class Sorting {
             int nextSpot = 0;
 
             //runs as long as one array has not reached the end.
-            while (countArr1 < a.length && countArr2 < b.length) {
-                //compares which one should go first in the merged array
-                if (a[countArr1] < b[countArr2]) {
-                    //set item to the next spot in the array open
+            while (countArr1 < a.length && countArr2 < b.length) 
+            {   //compares which one should go first in the merged array
+                if (a[countArr1] < b[countArr2]) 
+                {   //set item to the next spot in the array open
                     temp[nextSpot] = a[countArr1];
                     countArr1++;
-                } else {
-                    //set item to the next spot in the array open
+                } else 
+                {   //set item to the next spot in the array open
                     temp[nextSpot] = b[countArr2];
                     countArr2++;
                 }
@@ -130,15 +134,16 @@ public class Sorting {
             }
 
             //fills in remainder of the array, if there is any
-            while (countArr2 < b.length) {
+            while (countArr2 < b.length)
+            {   //set item to the next spot in the array open
                 temp[nextSpot] = b[countArr2];
                 countArr2++;
                 nextSpot++;
             }
 
             //fills in remainder of the temp array, if there is any
-            while (countArr1 < a.length) {
-                //set item to the next spot in the array open
+            while (countArr1 < a.length) 
+            {   //set item to the next spot in the array open
                 temp[nextSpot] = a[countArr1];
                 countArr1++;
                 nextSpot++;
@@ -147,6 +152,6 @@ public class Sorting {
             //returns the sorted merged array.
             return temp;
         }
-    }
+    } //end of merge sort algorithm
     
 }
