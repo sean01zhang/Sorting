@@ -80,7 +80,7 @@ public class Sorting {
      * @param high The higher boundary of the area of interest.
      * @return The sorted array
      */
-    public static int[] mergeSort(int[] item, int low, int high) 
+    public static Comparable[] mergeSort(Comparable[] item, int low, int high) 
     {   /* 
             The basic idea of mergesort is to split it into a tree of broken elements of the array and then merge them 
             into bigger subarrays that are in order and then merge the subarrays into ever larger subarrays that are in
@@ -92,7 +92,7 @@ public class Sorting {
         //This means that the array has been sorted and merged, so return it.
         if (low == high) 
         {   //converts the item to an array
-            int[] temp = {item[high]};
+            Comparable[] temp = {item[high]};
             return temp;
         //otherwise, perform mergesort algorithm.
         } else 
@@ -101,11 +101,11 @@ public class Sorting {
             int mid = (low + high) / 2;
 
             //split the given array into two subarrays, a and b. A and B are already sorted.
-            int[] a = mergeSort(item, low, mid);
-            int[] b = mergeSort(item, mid + 1, high);
+            Comparable[] a = mergeSort(item, low, mid);
+            Comparable[] b = mergeSort(item, mid + 1, high);
 
             //create a temporary item array to store the two merged sorted subarrays.
-            int[] temp = new int[a.length + b.length];
+            Comparable[] temp = new Comparable[a.length + b.length];
 
             //this is the next element to consider in the first subarray
             int countArr1 = 0;
@@ -117,7 +117,7 @@ public class Sorting {
             //runs as long as one array has not reached the end.
             while (countArr1 < a.length && countArr2 < b.length) 
             {   //compares which one should go first in the merged array
-                if (a[countArr1] < b[countArr2]) 
+                if (a[countArr1].compareTo(b[countArr2])<0) 
                 {   //set item to the next spot in the array open
                     temp[nextSpot] = a[countArr1];
                     countArr1++;
