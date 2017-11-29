@@ -18,8 +18,21 @@ public class Sorting {
         // TODO code application logic here
     }
     
-    public int[] Insertion(int[] nums){
-        return null;
+       public static int[] Insertion(int[] nums){
+        for(int i=1; i<nums.length; i++){
+            int temp = nums[i];
+            for (int j=i-1; j>=0; j--){
+                nums[j+1]=nums[j];
+                if(temp>=nums[j]){
+                    nums[j+1]=temp;
+                    break;
+                }
+            }
+            if(temp<nums[0]){
+                nums[0]=temp;
+            }
+        }
+        return nums;
     }
     
     /**
