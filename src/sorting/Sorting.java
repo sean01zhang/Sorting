@@ -5,6 +5,9 @@
  */
 package sorting;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 /**
  *
  * @author 072584980
@@ -15,24 +18,59 @@ public class Sorting {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner input = new Scanner(System.in);
+        int x = input.nextInt();
+        int numsArr[]=new int[x];
+        
+        for(int i=0;i<x;i++) {
+            numsArr[i]=input.nextInt();
+        }
+        
+        System.out.println(Arrays.toString(insertionSort(numsArr)));
     }
     
-       public static int[] Insertion(int[] nums){
-        for(int i=1; i<nums.length; i++){
+    public static int[] Insertion(int[] nums) {
+        for (int i = 1; i < nums.length; i++) {
             int temp = nums[i];
-            for (int j=i-1; j>=0; j--){
-                nums[j+1]=nums[j];
-                if(temp>=nums[j]){
-                    nums[j+1]=temp;
+            for (int j = i - 1; j >= 0; j--) {
+                nums[j + 1] = nums[j];
+                if (temp >= nums[j]) {
+                    nums[j + 1] = temp;
                     break;
                 }
             }
-            if(temp<nums[0]){
-                nums[0]=temp;
+            if (temp < nums[0]) {
+                nums[0] = temp;
             }
         }
         return nums;
+    }
+    
+    /**
+     * Insertion Method for Sean's Learning Pleasure. Do not remove this. Basic insertion sort method
+     * @param item the int array to pass in
+     * @return the sorted array
+     */
+    public static int[] insertionSort(int[] item) 
+    {   //first case does not matter since there is nothing to compare it with in terms of previous
+        for(int i=1;i<item.length;i++) 
+        {   //check if this case is smaller than the previous case. Also make sure j does not go under zero.
+            //this loop should not run if the integer at the current index of i is larger than the one previous to it.
+            for(int j=i-1;j>=0 && item[j+1] < item[j];j--) 
+            {   //if so, then swap j with the one after it
+                int temp2 = item[j];
+                item[j] = item[j+1];
+                item[j+1] = temp2;
+            }
+            //otherwise, do nothing.
+        }
+        //return the organized array at the end
+        return item;
+    }
+    
+    public static int[] bubbleSort(int[] item) 
+    {
+        return null;
     }
     
     /**
