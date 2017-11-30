@@ -19,13 +19,13 @@ public class Sorting {
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int x = input.nextInt();
-        int numsArr[]=new int[x];
         
-        for(int i=0;i<x;i++) {
-            numsArr[i]=input.nextInt();
-        }
-        
+        //Used to test your thing to see if it works:
+        // 1. Enter number of elements in array
+        // 2. Enter values of array of integers
+        //Then, it will print out array of sorted integer array
+        int numsArr[]=new int[input.nextInt()];
+        for(int i=0;i<numsArr.length;i++) {numsArr[i]=input.nextInt();}
         System.out.println(Arrays.toString(bubbleSort(numsArr)));
     }
     
@@ -47,7 +47,7 @@ public class Sorting {
     }
     
     /**
-     * <b><p style="color:purple;"> Insertion Method by Sean. </p></b>Do not remove this. 
+     * <b><p style="color:purple;"> InsertionSort Method by Sean. </p></b>Do not remove this. 
      * I need this so that I understand insertion sorting better
      * @param item the int array to pass in
      * @return the sorted array
@@ -100,7 +100,6 @@ public class Sorting {
     
     /**
      * <b><p style="color:purple;"> Sorts a comparable array by using a selection sort algorithm. (Sean)</p></b>
-     *
      * @param index This is the index of where you want to start sorting in the array
      * @param item The comparable array of interest to be sorted
      * @return The array that has been sorted.
