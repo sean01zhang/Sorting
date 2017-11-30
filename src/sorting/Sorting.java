@@ -26,7 +26,7 @@ public class Sorting {
             numsArr[i]=input.nextInt();
         }
         
-        System.out.println(Arrays.toString(insertionSort(numsArr)));
+        System.out.println(Arrays.toString(bubbleSort(numsArr)));
     }
     
     public static int[] Insertion(int[] nums) {
@@ -47,12 +47,16 @@ public class Sorting {
     }
     
     /**
-     * Insertion Method for Sean's Learning Pleasure. Do not remove this. Basic insertion sort method
+     * <b><p style="color:purple;"> Insertion Method by Sean. </p></b>Do not remove this. 
+     * I need this so that I understand insertion sorting better
      * @param item the int array to pass in
      * @return the sorted array
      */
     public static int[] insertionSort(int[] item) 
-    {   //first case does not matter since there is nothing to compare it with in terms of previous
+    {   /* first case does not matter since there is nothing to compare it with in terms of previous
+           the idea of insertion sort is to go through the array from start to finish and "insert" the 
+           value in its organized position between its preceding values. 
+        */
         for(int i=1;i<item.length;i++) 
         {   //check if this case is smaller than the previous case. Also make sure j does not go under zero.
             //this loop should not run if the integer at the current index of i is larger than the one previous to it.
@@ -66,12 +70,33 @@ public class Sorting {
         }
         //return the organized array at the end
         return item;
-    }
+    } //end of insertion sort method
     
+    /**
+     * <b><p style="color:purple;"> BubbleSort method by Sean.</p></b> Do not remove this.
+     * I need this so that I understand bubble sorting better
+     * @param item the item to sort.
+     * @return the sorted integer array.
+     */
     public static int[] bubbleSort(int[] item) 
-    {
-        return null;
-    }
+    {   //the idea of bubblesort is to "bubble" up the larger values to the top of the array, eventually sorting the array
+        for(int size=item.length;size>0;size--)
+        {   //size will allow us to assign a pseudosize for our array. Basically, 
+            //once the highest value "bubbles" up, there is no need to include it in the bubble sort.
+            for(int i=0;i<size-1;i++) 
+            {   //loop through every element of the array, except for the last element, since there is nothing for that one to compare to.
+                if(item[i] > item[i+1])
+                {   //swap the two elements if the current value is bigger than the next value
+                    int temp = item[i];
+                    item[i] = item[i+1];
+                    item[i+1] = temp;
+                }    
+            }
+            
+        }
+        //returns the organized array when all elements have been "bubbled" up
+        return item;
+    } //end of bubble sort method
     
     /**
      * <b><p style="color:purple;"> Sorts a comparable array by using a selection sort algorithm. (Sean)</p></b>
