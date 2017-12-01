@@ -159,7 +159,7 @@ public class Sorting {
     {   /* 
             The basic idea of mergesort is to split it into a tree of broken elements of the array and then merge them 
             into bigger subarrays that are in order and then merge the subarrays into ever larger subarrays that are in
-            order. Eventually, you will get the sorted full array.
+            order. Eventually, you will get the sorted full array. This implementation of this algorithm is by no means the most efficient. 
             Complexity: O(n log n)
         */
         
